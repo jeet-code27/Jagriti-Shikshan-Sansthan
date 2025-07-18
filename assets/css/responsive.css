@@ -2,17 +2,35 @@
     .bg-outer-wrapper::after {
         width: 1444px;
     }
+    #back-to-top-btn {
+        bottom: 50px;
+        left: 50px;
+        width: 70px;
+        height: 70px;
+    }
 }
 
 @media screen and (min-width: 2001px) and (max-width: 2200px) {
     .bg-outer-wrapper::after {
         width: 1350px;
     }
+    #back-to-top-btn {
+        bottom: 50px;
+        left: 50px;
+        width: 70px;
+        height: 70px;
+    }
 }
 
 @media screen and (max-width: 1700px) {
     .bg-outer-wrapper::after {
         width: 66%;
+    }
+    #back-to-top-btn {
+        bottom: 50px;
+        left: 50px;
+        width: 70px;
+        height: 70px;
     }
 }
 
@@ -429,6 +447,12 @@
     .index3-outer-wrapper .header-con .navbar-light .navbar-nav .nav-link {
         font-size: 16px;
     }
+    #back-to-top-btn {
+        bottom: 50px;
+        left: 50px;
+        width: 70px;
+        height: 70px;
+    }
 
     .blogs-con .services-content-con {
         padding-left: 70px;
@@ -455,7 +479,7 @@
 
     #back-to-top-btn {
         bottom: 50px;
-        right: 50px;
+        left: 50px;
         width: 70px;
         height: 70px;
     }
@@ -2588,12 +2612,7 @@
         width: 140px;
     }
 
-    #back-to-top-btn {
-        bottom: 40px;
-        right: 40px;
-        width: 60px;
-        height: 60px;
-    }
+    
 
     #back-to-top-btn::after {
         font-size: 15px;
@@ -3492,12 +3511,7 @@
         width: 65px;
     }
 
-    #back-to-top-btn {
-        bottom: 30px;
-        right: 30px;
-        width: 45px;
-        height: 45px;
-    }
+  
 
     #back-to-top-btn::after {
         font-size: 14px;

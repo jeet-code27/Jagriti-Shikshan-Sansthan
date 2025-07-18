@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="assets/css/owl.carousel.min.css" type="text/css">
   <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
-  
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
  <style>
 /* Popup Inquiry Form Styles */
 .popup-overlay {
@@ -101,9 +101,76 @@
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+#message{
+  border: 2px;
+  background-color: #00DAB2;
+  border-radius: 50px;
+  padding: 5px 20px;
+  display: none;
+  
+  
+}
+.floating-container {
+      position: fixed;
+      bottom: 50px;
+      right: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      z-index: 9999;
+    }
+
+    .contact-btn {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .toggle { background: linear-gradient(to bottom right, #00DAB2, #128C7E); }
+
+    .ping {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 2px solid #25D366;
+      border-radius: 50%;
+      animation: ping 1s infinite;
+      opacity: 0.75;
+    }
+
+    @keyframes ping {
+      0% { transform: scale(1); opacity: 1; }
+      75%, 100% { transform: scale(3); opacity: 0; }
+    }
+
 </style>
 </head>
+<body> 
 
+  <div class="floating-container">
+    <!-- Toggle Icon -->
+     <div id="message">Contact Now</div>
+     <a href="tel:9251999394">
+    <div  class="contact-btn toggle" id="toggle-btn">
+      
+      <span class="ping"></span>
+
+
+      
+      <i style="scale: 1.7;" class="fa-solid fa-phone"></i>
+    </div>
+  </a>
+  </div>
+  
 <!-- LOADER -->
 <div class="loader-mask">
   <div class="loader">
@@ -711,8 +778,10 @@
 </div>
 
 
+<button id="back-to-top-btn"   title="Back to Top"></button>
 
-<button id="back-to-top-btn" title="Back to Top"></button>
+ 
+
 
  <!-- Add this script for popup functionality -->
  <script>
@@ -761,6 +830,19 @@ window.addEventListener('load', function() {
     });
   }
 });
+</script>
+<script>
+  
+
+  setInterval(() => {
+    document.getElementById('message').style.display='block'
+    setTimeout(() => {
+       document.getElementById('message').style.display='none'
+    }, 10000);
+  }, 5000);
+
+   
+  
 </script>
 
 <script src="assets/js/jquery.min.js"></script>
