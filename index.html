@@ -159,16 +159,10 @@
   <div class="floating-container">
     <!-- Toggle Icon -->
      <div id="message">Contact Now</div>
-     <a href="tel:9251999394">
-    <div  class="contact-btn toggle" id="toggle-btn">
-      
-      <span class="ping"></span>
-
-
-      
-      <i style="scale: 1.7;" class="fa-solid fa-phone"></i>
-    </div>
-  </a>
+     <div class="contact-btn toggle" id="toggle-btn">
+  <span class="ping"></span>
+  <i style="scale: 1.7;" class="fa-solid fa-message"></i>
+</div>
   </div>
   
 <!-- LOADER -->
@@ -642,6 +636,7 @@
 
 
 <!-- GET IN TOUCH SECTION -->
+<!-- GET IN TOUCH SECTION -->
 <section class="float-left w-100 position-relative contact-us-con padding-bottom116 main-box text-center mt-5" id="contact-section">
   <img alt="vector" class="triangle-shape img-fluid position-absolute" src="assets/images/triangle-vector2.png">
   <img alt="vector" class="half-circle-shape img-fluid position-absolute" src="assets/images/prple-circle-shape.png">
@@ -653,28 +648,33 @@
           <h2 class="font-weight-600">Contact Us Now</h2>
           <!-- heading title con -->
         </div>
-        <form class="main-form" method="post" id="contactpage">
-          <ul class="list-unstyled p-0 float-left w-100 mb-0">
-            <li>
-              <input type="text" placeholder="Name" name="fname" id="fname">
-            </li>
-            <li>
-              <input type="email" placeholder="Email" name="email" id="email">
-            </li>
-            <li>
-              <input type="tel" placeholder="Phone" name="phone" id="phone">
-            </li>
-            <li>
-              <input type="text" placeholder="Subject" name="subject" id="subject">
-            </li>
-            <li>
-              <textarea placeholder="Message" rows="6" name="msg"></textarea>
-            </li>
-          </ul>
-          <div class="light-green-btn">
-            <button type="submit" id="submit">Send Now</button>
-          </div>
-        </form>
+        
+        <!-- Updated Contact Form with Popup Style -->
+        <div class="contact-form-wrapper" style="background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto;">
+          <form class="main-form" method="post" id="contactpage">
+            <input type="text" placeholder="Your Name" name="fname" id="fname" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;" required>
+            
+            <input type="email" placeholder="Email Address" name="email" id="email" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;" required>
+            
+            <input type="tel" placeholder="Phone Number" name="phone" id="phone" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;" required>
+            
+            <select name="course" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;" required>
+              <option value="">Select Course Interest</option>
+              <option value="D-PHARMA">D-PHARMA</option>
+              <option value="ANM">ANM</option>
+              <option value="GNM">GNM</option>
+              <option value="D-MLT">D-MLT</option>
+              <option value="DXRT">DXRT</option>
+            </select>
+            
+            <input type="text" placeholder="Subject" name="subject" id="subject" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box;">
+            
+            <textarea placeholder="Your Message" rows="4" name="msg" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; resize: vertical;"></textarea>
+            
+            <button type="submit" id="submit" style="background-color: #42DBAF; color: white; border: none; padding: 12px 30px; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px; font-weight: 600;">Send Inquiry</button>
+          </form>
+        </div>
+        
         <!-- col -->
       </div>
       <!-- row -->
@@ -785,22 +785,12 @@
 
  <!-- Add this script for popup functionality -->
  <script>
-// Popup form script that shows on every page load and stays for 15 seconds
+// Popup form script - ONLY opens when button is clicked
 window.addEventListener('load', function() {
   const popup = document.getElementById('inquiryPopup');
   
-  if (popup) {
-    // Show popup after 500ms delay on every page load
-    setTimeout(function() {
-      popup.style.display = 'flex';
-      
-      // Auto-hide popup after 15 seconds
-      setTimeout(function() {
-        popup.style.display = 'none';
-      }, 15000); // 15 seconds = 15000ms
-      
-    }, 500);
-  }
+  // Remove the automatic popup display on page load
+  // The popup will only show when the floating button is clicked
   
   // Close button functionality
   const closeBtn = document.getElementById('closePopup');
@@ -815,8 +805,10 @@ window.addEventListener('load', function() {
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      alert('Thank you for your inquiry! We will contact you soon.');
+      // Hide popup
       document.getElementById('inquiryPopup').style.display = 'none';
+      // Redirect to thank you page
+      window.location.href = 'thank-you.html'; // Change this to your thank you page URL
     });
   }
   
@@ -836,10 +828,8 @@ window.addEventListener('load', function() {
 
   setInterval(() => {
     document.getElementById('message').style.display='block'
-    setTimeout(() => {
-       document.getElementById('message').style.display='none'
-    }, 10000);
-  }, 5000);
+    
+  }, );
 
    
   
@@ -857,6 +847,27 @@ window.addEventListener('load', function() {
 <script src="assets/js/counter.js"></script>
 <script src="assets/js/custom.js"></script>
 <script src="assets/js/search.js"></script>
+<script>
+// Handle floating contact button click to open popup
+document.getElementById('toggle-btn').addEventListener('click', function() {
+  document.getElementById('inquiryPopup').style.display = 'flex';
+});
+</script>
+
+
+<script>
+// Handle bottom contact form submission
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contactpage');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Redirect to thank you page
+      window.location.href = 'thank-you.html'; // Change this to your thank you page URL
+    });
+  }
+});
+</script>
 </body>
 
 </html>
